@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/take/AndroidStudioProjects/TwitterApplication2/app/libs/android-support-v4.jar"
+        jar="/Users/take/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-core/4.0.2/6555e7c45f5db0006823731b2ddb536d481e11d1/twitter4j-core-4.0.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
-        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/android-support-v4-b51795480bccd0edace8f4a7d42d87834ad8f72a.jar" />
+        sha1="6555e7c45f5db0006823731b2ddb536d481e11d1">
+        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-core-4.0.2-8f6d7b75399f8feafc4d2b1f38ee2bbc571d11cd.jar" />
     </item>
     <item
         jar="/Users/take/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
@@ -16,18 +16,11 @@
         <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-c5fdc76b1994ed567049835937f2f1228240926b.jar" />
     </item>
     <item
-        jar="/Users/take/AndroidStudioProjects/TwitterApplication2/app/libs/twitter4j-core-4.0.2.jar"
+        jar="/Users/take/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-async/4.0.2/bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389/twitter4j-async-4.0.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="381cf31e9200c2902782f17248d2af18e2ab4c56">
-        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-core-4.0.2-6197ecf357e68c690c1d738fce2ae0e88e10aaa2.jar" />
-    </item>
-    <item
-        jar="/Users/take/AndroidStudioProjects/TwitterApplication2/app/libs/android-smart-image-view-1.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d76ea8c3e9a60101244d6d04aff8cc75888570f0">
-        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/android-smart-image-view-1.0.0-d1dcfdc389b1867b4a735af4076cfc23a818d8d1.jar" />
+        sha1="bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389">
+        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-async-4.0.2-366c78bdb6fbc78a8203e9b617a8a89daed4f837.jar" />
     </item>
 
 </items>

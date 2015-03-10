@@ -16,19 +16,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    //http://stackoverflow.com/questions/20673625/android-gradle-plugin-0-7-0-duplicate-files-during-packaging-of-apk
+    //duplicate files during packaging of apk　というerrorの克服
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
 }
 
-repositories { mavenCentral() }
-dependencies {
-    //compile 'org.twitter4j:twitter4j-core:4.0.2'
-    //compile 'org.twitter4j:twitter4j-async:4.0.2'
-    //compile 'com.android.support:support-v4:18.0.0'
-    //compile files('libs/android-smart-image-view-1.0.0.jar')
-    //compile files('libs/twitter4j-async-4.0.2.jar')
-    //downloadしてくるファイル違っててはまってた
-    compile files('libs/twitter4j-core-4.0.2.jar')
-    //compile fileTree(dir:'libs',include:['*.jar'])*/
 
+dependencies {
+    compile 'org.twitter4j:twitter4j-core:4.0.2'
+    compile 'org.twitter4j:twitter4j-async:4.0.2'
+    //build.gradle変更したらsync忘れない
+    //compile files('libs/twitter4j-core-4.0.2.jar')
+    //compile files('libs/twitter4j-async-4.0.2.jar')
+    //compile fileTree(dir:'libs',include:['*.jar'])
     compile 'com.android.support:support-v4:19.+'
-    //compile 'org.twitter4j:twitter4j-core:4.0.2'
 }
