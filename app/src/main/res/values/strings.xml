@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">4jWithGoogleMap</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_">Activity</string>
+    <string name="title_activity_twitter_oauth">TwitterOAuthActivity</string>
+
+</resources>
