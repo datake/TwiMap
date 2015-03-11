@@ -39,7 +39,23 @@
                 android:text="ツイート"
                 android:id="@+id/button3"
                 android:onClick="tweet" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="検索"
+                android:id="@+id/button4"
+                android:onClick="search" />
         </LinearLayout>
+
+
+        <android.inputmethodservice.ExtractEditText
+            android:layout_width="246dp"
+            android:layout_height="wrap_content"
+            android:text="検索入力"
+            android:id="@+id/editText"
+            android:onClick="clearText"
+            android:layout_gravity="center_horizontal" />
 
         <ListView
             android:layout_width="wrap_content"
@@ -47,14 +63,4 @@
             android:id="@+id/listView" />
     </LinearLayout>
 
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="89dp"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="68dp" />
 </RelativeLayout>

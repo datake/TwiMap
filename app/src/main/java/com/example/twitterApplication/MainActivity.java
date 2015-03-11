@@ -16,6 +16,8 @@ import android.widget.ListView;
 
 import twitter4j.AsyncTwitter;
 import twitter4j.AsyncTwitterFactory;
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.TwitterAdapter;
@@ -23,6 +25,7 @@ import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
 //import java.util.logging.Handler;
+
 
 
 public class MainActivity extends Activity {
@@ -36,6 +39,7 @@ public class MainActivity extends Activity {
 
     ListView listView;
     EditText editText;
+
     ArrayAdapter<String> adapter;
     Handler h = new Handler();
 
@@ -51,8 +55,9 @@ public class MainActivity extends Activity {
 
         listView = (ListView)findViewById(R.id.listView);
         // listViewを関連付け
-        //editText = (EditText)findViewById(R.id.editText1);
+        editText = (EditText)findViewById(R.id.editText);
         // editTextを関連付け
+
         // adapterを作成、listViewと関連付け
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
@@ -96,6 +101,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void gotHomeTimeline(ResponseList<Status> statuses) {
+            //public void gotHomeTimeline(ResponseList<Status> statuses) {
                 // TODO3 タイムラインを取得したときの処理を書く
 
                 final ResponseList<Status> slist = statuses;
@@ -112,6 +118,22 @@ public class MainActivity extends Activity {
                     }
                 });
             }
+
+            //http://workpiles.com/2014/03/android-twitter4j-asynctwitter/
+            @Override
+
+            public void searched(QueryResult queryResult) {
+
+                for (Status status : queryResult.getTweets()) {
+                    Log.d("searched", "gettext:" + status.getText());
+                }
+
+
+
+            }
+
+
+
         });//end addlistener
 
 
@@ -126,7 +148,16 @@ public class MainActivity extends Activity {
             // Twitterにアクセストークンをセット
             twitter.setOAuthAccessToken(accessToken);
             // タイムライン取得
-            twitter.getHomeTimeline();
+            //twitter.getHomeTimeline();
+
+            Query query = new Query();
+            query.setQuery("macbook");
+            //query.setCount(80);
+            //QueryResult result;
+            twitter.search(query);
+
+
+
         }
 
 
@@ -194,17 +225,61 @@ public class MainActivity extends Activity {
      public void oauth(View v){
      // OAuth認証のためのRequestTokenを取得する
         twitter.getOAuthRequestTokenAsync("callback://MainActivity");
-      }
-    // ツイートボタンを押した時の処理
-      public void tweet(View v){
+     }
+     // ツイートボタンを押した時の処理
+     public void tweet(View v){
         // ツイートする
         // twitter.updateStatus(editText.getText().toString());
-      }
+     }
       // 更新ボタンの処理
-       public void refresh(View v){
-      // タイムラインを更新する
+     public void refresh(View v){
+     // タイムラインを更新する
            twitter.getHomeTimeline();
-      }
+     }
+
+
+   /* public void searchTweet(String text) {
+
+        Query query = new Query();
+        query.setQuery(text);
+        query.setCount(80); //検索件数
+        query.setResultType(Query.RECENT); //日付の新しいものから
+        mTwitter.search(query);
+    }*/
+
+    // 更新ボタンの処理
+     public void search(View v){
+         Log.d("Clicled","serch clicked");
+         String edittextstr = editText.getText().toString().trim();
+         Query query = new Query();
+         query.setQuery(edittextstr);
+         query.setCount(80);
+         QueryResult result;
+         twitter.search(query);
+         //result = twitter.search(query);
+
+
+         /*for (Status status : twitter.search(query).getTweets()) {
+             Log.d("searched", "Status :" + status.getText());
+
+
+         }*/
+
+
+         //Log.d("ヒット数 ", "hit"+result.getTweets().size());
+
+         /*for (Status tweet : result.getTweets()) {
+             String str = tweet.getText();
+             // java.util.Date date = tweet.getCreatedAt();
+             Log.d( "text","text:"+str);
+         }*/
+
+     }
+
+
+    public void clearText(View v) {
+        editText.setText("");
+    }
 
 
 }
