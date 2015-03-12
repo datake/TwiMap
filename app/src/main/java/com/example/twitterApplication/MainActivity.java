@@ -1,21 +1,32 @@
 package com.example.twitterApplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import twitter4j.AsyncTwitter;
 import twitter4j.AsyncTwitterFactory;
+import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.ResponseList;
@@ -40,10 +51,12 @@ public class MainActivity extends Activity {
     ListView listView;
     EditText editText;
 
-    ArrayAdapter<String> adapter;
-    Handler h = new Handler();
+
+    //ArrayAdapter<String> adapter;
+    //Handler h = new Handler();
 
 
+    ArrayList<User> users = new ArrayList<User>();
 
 
     @Override
@@ -53,17 +66,58 @@ public class MainActivity extends Activity {
 
         Log.d("oncreate", "oncreate");
 
-        listView = (ListView)findViewById(R.id.listView);
+        //listView = (ListView)findViewById(R.id.listView);
         // listViewを関連付け
         editText = (EditText)findViewById(R.id.editText);
         // editTextを関連付け
 
         // adapterを作成、listViewと関連付け
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(adapter);
+        //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        //listView.setAdapter(adapter);
+
+        //listviewを扱う(New ListView)
+       // ArrayList<User> users = new ArrayList<User>();
+        int[] images = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
+        String[] namelist={"name1","name2","name3"};
+        String[] locationlist={"location1","location2","location3"};
+
+        for (int i = 0;i<images.length;i++) {
+            //Map<String, String> m = new HashMap<String, String>();
+           /* User user = new User();
+            user.setImage(BitmapFactory.decodeResource(getResources(), images[i]));
+            user.setName(namelist[i]);
+            user.setLocation(locationlist[i]);
+            users.add(user);
+
+            Log.d("name", ":"+namelist[i]);
+            Log.d("location", ""+locationlist[i]);*/
+            //items.add(m);
+        }
+
+
+        //adapterを準備
+        UserAdapter userAdapter = new UserAdapter(this, 0, users);
+
+        //listviewにadapterを設置
+
+        final ListView myListView = (ListView) findViewById(R.id.listView);
+        //データがなかったときにR.id.emptyを表示
+        //myListView.setEmptyView(findViewById(R.id.empty));
+        myListView.setAdapter(userAdapter);
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,View view,int i, long l){
+
+                TextView name = (TextView) view.findViewById(R.id.name);
+                Toast.makeText(MainActivity.this, name.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
+
+        //Twitter処理
 
         AsyncTwitterFactory factory = new AsyncTwitterFactory();
         twitter = factory.getInstance();
@@ -73,6 +127,7 @@ public class MainActivity extends Activity {
         //非同期通信処理
         // Twitterと通信した際の動作を記述
         twitter.addListener(new TwitterAdapter() {
+            ArrayList<User> usersListener = new ArrayList<User>();
             @Override
             public void gotOAuthRequestToken(RequestToken token) {
                 //1 RequestTokenを取得したときの処理
@@ -103,8 +158,8 @@ public class MainActivity extends Activity {
             public void gotHomeTimeline(ResponseList<Status> statuses) {
             //public void gotHomeTimeline(ResponseList<Status> statuses) {
                 // TODO3 タイムラインを取得したときの処理を書く
-
-                final ResponseList<Status> slist = statuses;
+                //教科書の方法
+                /*final ResponseList<Status> slist = statuses;
 
                 h.post(new Runnable() {
                     @Override
@@ -113,26 +168,31 @@ public class MainActivity extends Activity {
                         adapter.clear();
                         for (int i = 0; i < slist.size(); i++) {
                             Status s = slist.get(i);// ポストをひとつずつ取り出し
-                            adapter.add(s.getUser().getName() + ", " + s.getText()); // adapterに加える
+                            //adapter.add(s.getUser().getName() + ", " + s.getText()); // adapterに加える
                         }
                     }
-                });
+                });*/
             }
 
             //http://workpiles.com/2014/03/android-twitter4j-asynctwitter/
             @Override
-
             public void searched(QueryResult queryResult) {
 
                 for (Status status : queryResult.getTweets()) {
-                    Log.d("searched", "gettext:" + status.getText());
+                    Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation());
+
+
+                    User user = new User();
+                    user.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+                    user.setName(status.getUser().getName());
+                    user.setLocation(status.getText());
+                    users.add(user);
+
+                    //Log.d("name", ":"+namelist[]);
+                    //Log.d("location", ""+locationlist[i]);
+
                 }
-
-
-
             }
-
-
 
         });//end addlistener
 
@@ -150,51 +210,12 @@ public class MainActivity extends Activity {
             // タイムライン取得
             //twitter.getHomeTimeline();
 
-            Query query = new Query();
-            query.setQuery("macbook");
+            //Query query = new Query();
+            //query.setQuery("macbook");
             //query.setCount(80);
             //QueryResult result;
-            twitter.search(query);
-
-
-
+            //twitter.search(query);
         }
-
-
-        // 初期化
-        // twitter = new TwitterFactory().getInstance();
-        //twitter.setOAuthConsumer(apiKey,apiSecret);
-        //Query query = new Query();
-
-
-
-
-
-        /*try {
-            // 検索ワードをセット
-            query.setQuery("apple");
-            // 1度のリクエストで取得するTweetの数（100が最大）
-            query.setCount(100);
-            query.resultType(Query.RECENT);
-
-            //ここでおちる!?
-            QueryResult result;
-            //result = twitter.search(query);
-            result = twitter.search(new Query("Apple Watch"));
-
-            Log.d("ヒット数 ", "hit"+result.getTweets().size());
-
-            for (Status tweet : result.getTweets()) {
-                String str = tweet.getText();
-                // java.util.Date date = tweet.getCreatedAt();
-                Log.d( "text","text:"+str);
-            }
-        } catch (TwitterException e) {
-
-            Log.e("TwitterException","error");
-            e.printStackTrace();
-        }*/
-
     }
 
 
@@ -238,47 +259,117 @@ public class MainActivity extends Activity {
      }
 
 
-   /* public void searchTweet(String text) {
-
-        Query query = new Query();
-        query.setQuery(text);
-        query.setCount(80); //検索件数
-        query.setResultType(Query.RECENT); //日付の新しいものから
-        mTwitter.search(query);
-    }*/
 
     // 更新ボタンの処理
      public void search(View v){
          Log.d("Clicled","serch clicked");
          String edittextstr = editText.getText().toString().trim();
          Query query = new Query();
-         query.setQuery(edittextstr);
+         //query.setQuery(edittextstr);
          query.setCount(80);
+         //清水寺から１０キロ以内のtweet
+         GeoLocation geo= new GeoLocation(100.994856, 200.785046);
+         query.setGeoCode(geo,100,Query.KILOMETERS);
          QueryResult result;
          twitter.search(query);
          //result = twitter.search(query);
 
 
-         /*for (Status status : twitter.search(query).getTweets()) {
-             Log.d("searched", "Status :" + status.getText());
-
-
-         }*/
-
-
-         //Log.d("ヒット数 ", "hit"+result.getTweets().size());
-
-         /*for (Status tweet : result.getTweets()) {
-             String str = tweet.getText();
-             // java.util.Date date = tweet.getCreatedAt();
-             Log.d( "text","text:"+str);
-         }*/
 
      }
 
 
     public void clearText(View v) {
         editText.setText("");
+    }
+
+
+    //viewholderで高速化
+    private static class ViewHolder {
+        ImageView image;
+        TextView name;
+        TextView location;
+
+        public ViewHolder(View view){
+            this.image = (ImageView) view.findViewById(R.id.image);
+            this.name = (TextView) view.findViewById(R.id.name);
+            this.location = (TextView) view.findViewById(R.id.location);
+        }
+    }
+
+    public class UserAdapter extends ArrayAdapter<User>{
+
+        private LayoutInflater layoutInflater;
+
+        //コンストラクタ
+        public UserAdapter(Context context,int viewResourceId, ArrayList<User> users){
+            super(context, viewResourceId, users);
+            this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+
+
+        @Override
+        public android.view.View getView(int position, View convertView, ViewGroup parent){
+            ViewHolder viewHolder;
+            //再利用できるviewがなかったらviewをつくる=LayoutInflaterを使ってrow.xmlをviewにする
+            if (convertView == null){
+                convertView = layoutInflater.inflate(R.layout.list_item_twitter, null);
+                viewHolder = new ViewHolder(convertView);
+                convertView.setTag(viewHolder);
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+
+            //そのviewをデータにセット
+            User user = (User ) getItem(position);
+
+            viewHolder.image.setImageBitmap(user.getImage());
+            viewHolder.name.setText(user.getName());
+            viewHolder.location.setText(user.getLocation());
+            /*ImageView userImage = (ImageView) convertView.findViewById(R.id.image);
+            userImage.setImageBitmap(user.getImage());
+
+            TextView userName = (TextView) convertView.findViewById(R.id.name);
+            userName.setText(user.getName());
+
+            TextView userLocation = (TextView) convertView.findViewById(R.id.location);
+            userLocation.setText(user.getLocation());*/
+
+
+            //viewを返す
+            return convertView;
+        }
+    }
+
+
+
+
+    //listviewで使うUserクラス
+    private class User{
+        private Bitmap image;
+        private String name;
+        private String location;
+
+        public Bitmap getImage(){
+            return this.image;
+        }
+        public void setImage(Bitmap image){
+            this.image = image;
+        }
+        public String getName(){
+            return this.name;
+        }
+        public void setName(String name){
+            this.name = name;
+        }
+        public String getLocation(){
+            return this.location;
+        }
+        public void setLocation(String location){
+            this.location = location;
+        }
+
     }
 
 

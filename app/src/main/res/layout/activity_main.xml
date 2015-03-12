@@ -52,7 +52,7 @@
         <android.inputmethodservice.ExtractEditText
             android:layout_width="246dp"
             android:layout_height="wrap_content"
-            android:text="検索入力"
+            android:text="iPhone"
             android:id="@+id/editText"
             android:onClick="clearText"
             android:layout_gravity="center_horizontal" />
