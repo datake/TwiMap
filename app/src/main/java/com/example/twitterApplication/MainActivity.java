@@ -20,7 +20,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.twitterApplication.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -30,16 +29,20 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import twitter4j.AsyncTwitter;
 import twitter4j.AsyncTwitterFactory;
+import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
-import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.TwitterAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
+
+
 
 public class MainActivity extends Activity implements OnMapReadyCallback {
 
@@ -55,12 +58,25 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
     ArrayList<User> users = new ArrayList<User>();
 
 
+    //Map<String, String> m = new HashMap<String, String>();
+    List<String> titleList = new ArrayList<String>(Arrays.asList("data1", "temple", "Station"));
+    List<String> snippetList = new ArrayList<String>(Arrays.asList("data1", "Kiyomizu", "kyoto station"));
+    List<Double> latitudeList = new ArrayList<Double>(Arrays.asList(34.985442, 34.994856, 34.985460));
+    List<Double> longititudeList = new ArrayList<Double>(Arrays.asList(135.758456,135.785046,135.758450));
+
+
+    // getApplication()でアプリケーションクラスのインスタンスを拾う
+    //final Globals globals = (Globals)this.getApplication();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         Log.d("oncreate", "oncreate");
         // editTextを関連付け
@@ -115,44 +131,37 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
             }
 
 
-            @Override
-            public void gotHomeTimeline(ResponseList<Status> statuses) {
-                // TODO3 タイムラインを取得したときの処理を書く
-                //タイムラインは今回使わない
-                /*final ResponseList<Status> slist = statuses;
 
-                h.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        // TODO Auto-generated method stub
-                        adapter.clear();
-                        for (int i = 0; i < slist.size(); i++) {
-                            Status s = slist.get(i);// ポストをひとつずつ取り出し
-                            //adapter.add(s.getUser().getName() + ", " + s.getText()); // adapterに加える
-                        }
-                    }
-                });*/
-
-            }
 
             //http://workpiles.com/2014/03/android-twitter4j-asynctwitter/
             @Override
             public void searched(QueryResult queryResult) {
                  users.clear();
                 for (Status status : queryResult.getTweets()) {
-                    Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation());
+                    //Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation());
 
-                    User user = new User();
+                   /* User user = new twitter4j.User();
                     //status.getUser().getProfileImageURL()はString型
                     user.setImage(status.getUser().getProfileImageURL());
                     user.setName(status.getUser().getName());
                     user.setLocation(status.getText());
 
                     //検索結果に基づいてUserを作成しUsersに追加(:ArrayList<User>)
-                    users.add(user);
+                    users.add(user);*/
+
+                    //mapに表示するためのデータ
+                    titleList.add((status.getUser().getName()));
+                    snippetList.add(status.getText());
+                    latitudeList.add(status.getGeoLocation().getLatitude());
+                    longititudeList.add(status.getGeoLocation().getLongitude());
+                    Log.d("searchedfor map", "name,text,lat,long:" + status.getUser().getScreenName()+status.getText()+status.getGeoLocation());
+
 
                 }
                 userAdapter.notifyDataSetChanged();
+
+                //TODO ここでgooglemapをasyncする処理。
+                //mapFragment.getMapAsync(this);
             }
         });//end addlistener
 
@@ -180,22 +189,28 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         //Google Map Fragment
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
+        //onmapreadyのよみだし
         mapFragment.getMapAsync(this);
+
+        //一回最初のデータの読み込み
+        initSearch();
     }//end oncreate
 
 
     //Googlemapのよびだし
     @Override
     public void onMapReady(GoogleMap map) {
-        LatLng kyoto= new LatLng(34.985442,135.758466);
+        for (int tmp=0; tmp<titleList.size(); tmp++) {
+            LatLng location = new LatLng(latitudeList.get(tmp), longititudeList.get(tmp));
+            map.setMyLocationEnabled(true);
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
 
-        map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(kyoto, 13));
-
-        map.addMarker(new MarkerOptions()
-                .title("Kyoto Station")
-                .snippet("Hello Kyoto")
-                .position(kyoto));
+            map.addMarker(new MarkerOptions()
+                    .title(titleList.get(tmp))
+                    .snippet(snippetList.get(tmp))
+                    .position(location));
+            Log.d("onMapReady", "maptitile:" + titleList.get(tmp));
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -241,15 +256,29 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
          Toast.makeText(MainActivity.this,editTextStr, Toast.LENGTH_SHORT).show();
          Log.d("Clicled","serch clicked"+editTextStr);
          Query query = new Query();
-         query.setQuery(editTextStr);
+         //query.setQuery(editTextStr);
          query.setCount(10);
-         //清水寺から１０キロ以内のtweet
-         //GeoLocation geo= new GeoLocation(34.994856, 135.785046);
-         //query.setGeoCode(geo,100,Query.KILOMETERS);
+         //清水寺から１キロ以内のtweet
+         GeoLocation geo= new GeoLocation(34.994856, 135.785046);
+         query.setGeoCode(geo,1,Query.KILOMETERS);
          QueryResult result;
          twitter.search(query);
          //result = twitter.search(query);
      }
+    //検索ボタンの処理
+    public void initSearch(){
+
+        Log.d("initSearch()","data set");
+        Query query = new Query();
+        //100件取得
+        query.setCount(20);
+        //清水寺から１キロ以内のtweet
+        GeoLocation geo= new GeoLocation(34.994856, 135.785046);
+        query.setGeoCode(geo,1,Query.KILOMETERS);
+        QueryResult result;
+        twitter.search(query);
+        //result = twitter.search(query);
+    }
 
 
     public void clearText(View v) {

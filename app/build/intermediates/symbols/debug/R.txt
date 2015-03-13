@@ -450,8 +450,8 @@ int id adjust_width 0x7f090017
 int id always 0x7f09001b
 int id beginning 0x7f090013
 int id book_now 0x7f09002b
-int id button 0x7f090053
-int id button4 0x7f090054
+int id button 0x7f090054
+int id button4 0x7f090055
 int id buyButton 0x7f090028
 int id buy_now 0x7f09002c
 int id buy_with_google 0x7f09002d
@@ -464,7 +464,7 @@ int id dialog 0x7f090020
 int id disableHome 0x7f09000c
 int id donate_with_google 0x7f09002e
 int id dropdown 0x7f090021
-int id editText 0x7f090055
+int id editText 0x7f090053
 int id edit_query 0x7f090047
 int id end 0x7f090014
 int id expand_activities_button 0x7f090036

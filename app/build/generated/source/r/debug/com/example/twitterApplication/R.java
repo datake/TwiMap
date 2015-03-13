@@ -1712,8 +1712,8 @@ containing a value of this type.
         public static final int always=0x7f09001b;
         public static final int beginning=0x7f090013;
         public static final int book_now=0x7f09002b;
-        public static final int button=0x7f090053;
-        public static final int button4=0x7f090054;
+        public static final int button=0x7f090054;
+        public static final int button4=0x7f090055;
         public static final int buyButton=0x7f090028;
         public static final int buy_now=0x7f09002c;
         public static final int buy_with_google=0x7f09002d;
@@ -1726,7 +1726,7 @@ containing a value of this type.
         public static final int disableHome=0x7f09000c;
         public static final int donate_with_google=0x7f09002e;
         public static final int dropdown=0x7f090021;
-        public static final int editText=0x7f090055;
+        public static final int editText=0x7f090053;
         public static final int edit_query=0x7f090047;
         public static final int end=0x7f090014;
         public static final int expand_activities_button=0x7f090036;
