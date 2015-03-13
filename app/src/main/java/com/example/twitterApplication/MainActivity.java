@@ -36,8 +36,8 @@ import twitter4j.auth.RequestToken;
 
 public class MainActivity extends Activity {
 
-    private final String apiKey = "secret";
-    private final String apiSecret = "secret";
+    private final String apiKey = "Qko6HCmLeKYLsvuvU32rCQ0HF";
+    private final String apiSecret = "MC0DWK47LllmBG6CEzowdtUyxqebXhM0lN0ori5qgaTtb2mQYA";
     //String consumerKey = "";
     //String consumerSecret = "";
     private AsyncTwitter twitter;
