@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/take/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-async/4.0.2/bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389/twitter4j-async-4.0.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389">
+        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-async-4.0.2-366c78bdb6fbc78a8203e9b617a8a89daed4f837.jar" />
+    </item>
+    <item
         jar="/Users/take/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-core/4.0.2/6555e7c45f5db0006823731b2ddb536d481e11d1/twitter4j-core-4.0.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -9,18 +16,18 @@
         <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-core-4.0.2-8f6d7b75399f8feafc4d2b1f38ee2bbc571d11cd.jar" />
     </item>
     <item
+        jar="/Users/take/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.0/7ff0e000d1e27e356567f56c92af3b8ab912636f/picasso-2.5.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ff0e000d1e27e356567f56c92af3b8ab912636f">
+        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/picasso-2.5.0-666c653babe8bef20b7e748e114224635a2ccab9.jar" />
+    </item>
+    <item
         jar="/Users/take/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
         <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-c5fdc76b1994ed567049835937f2f1228240926b.jar" />
-    </item>
-    <item
-        jar="/Users/take/.gradle/caches/modules-2/files-2.1/org.twitter4j/twitter4j-async/4.0.2/bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389/twitter4j-async-4.0.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="bcd25b8f3e6ec54a947fcde5eca72ab0c9fc1389">
-        <dex dex="/Users/take/AndroidStudioProjects/TwitterApplication2/app/build/intermediates/pre-dexed/debug/twitter4j-async-4.0.2-366c78bdb6fbc78a8203e9b617a8a89daed4f837.jar" />
     </item>
 
 </items>

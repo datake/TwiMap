@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +20,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import twitter4j.AsyncTwitter;
@@ -36,8 +36,8 @@ import twitter4j.auth.RequestToken;
 
 public class MainActivity extends Activity {
 
-    private final String apiKey = "Qko6HCmLeKYLsvuvU32rCQ0HF";
-    private final String apiSecret = "MC0DWK47LllmBG6CEzowdtUyxqebXhM0lN0ori5qgaTtb2mQYA";
+    private final String apiKey = "secret";
+    private final String apiSecret = "secret";
     //String consumerKey = "";
     //String consumerSecret = "";
     private AsyncTwitter twitter;
@@ -59,22 +59,6 @@ public class MainActivity extends Activity {
         // editTextを関連付け
         editText = (EditText)findViewById(R.id.editText);
 
-       /* int[] images = {R.drawable.ic_launcher,R.drawable.ic_launcher,R.drawable.ic_launcher};
-        String[] namelist={"name1","name2","name3"};
-        String[] locationlist={"location1","location2","location3"};
-
-        for (int i = 0;i<images.length;i++) {
-            //Map<String, String> m = new HashMap<String, String>();
-            User user = new User();
-            user.setImage(BitmapFactory.decodeResource(getResources(), images[i]));
-            user.setName(namelist[i]);
-            user.setLocation(locationlist[i]);
-            users.add(user);
-
-            Log.d("name", ":"+namelist[i]);
-            Log.d("location", ""+locationlist[i]);
-            //items.add(m);
-        }*/
 
         final ListView myListView = (ListView) findViewById(R.id.listView);
         //adapterをListviewにセット
@@ -152,17 +136,16 @@ public class MainActivity extends Activity {
                     Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation());
 
                     User user = new User();
-                    user.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+                    //status.getUser().getProfileImageURL()はString型
+                    user.setImage(status.getUser().getProfileImageURL());
                     user.setName(status.getUser().getName());
                     user.setLocation(status.getText());
 
                     //検索結果に基づいてUserを作成しUsersに追加(:ArrayList<User>)
                     users.add(user);
 
-                    //Log.d("name", ":"+namelist[]);
-                    //Log.d("location", ""+locationlist[i]);
-
                 }
+                userAdapter.notifyDataSetChanged();
             }
         });//end addlistener
 
@@ -180,7 +163,7 @@ public class MainActivity extends Activity {
 
             Query query = new Query();
             //query.setQuery("");
-            //query.setCount(80);
+            query.setCount(10);
             //QueryResult result;
             twitter.search(query);
         }
@@ -249,11 +232,13 @@ public class MainActivity extends Activity {
 
     //viewholderで高速化
     private static class ViewHolder {
+
         ImageView image;
         TextView name;
         TextView location;
 
         public ViewHolder(View view){
+
             this.image = (ImageView) view.findViewById(R.id.image);
             this.name = (TextView) view.findViewById(R.id.name);
             this.location = (TextView) view.findViewById(R.id.location);
@@ -273,7 +258,7 @@ public class MainActivity extends Activity {
         @Override
         public android.view.View getView(int position, View convertView, ViewGroup parent){
             ViewHolder viewHolder;
-            //再利用できるviewがなかったらviewをつくる=LayoutInflaterを使ってrow.xmlをviewにする
+            //再利用できるviewがなかったらviewをつくる=LayoutInflaterを使ってlist_item.xmlをviewにする
             if (convertView == null){
                 convertView = layoutInflater.inflate(R.layout.list_item_twitter, null);
                 viewHolder = new ViewHolder(convertView);
@@ -285,17 +270,13 @@ public class MainActivity extends Activity {
             //そのviewをデータにセット
             User user = (User) getItem(position);
 
-            viewHolder.image.setImageBitmap(user.getImage());
+            //アイコンの処理(画像の読み込み)
+            viewHolder.image.setImageURI(Uri.parse(user.getImage()));
+            Picasso.with(getContext()).load(user.getImage()).into(viewHolder.image);
+
+
             viewHolder.name.setText(user.getName());
             viewHolder.location.setText(user.getLocation());
-            /*ImageView userImage = (ImageView) convertView.findViewById(R.id.image);
-            userImage.setImageBitmap(user.getImage());
-
-            TextView userName = (TextView) convertView.findViewById(R.id.name);
-            userName.setText(user.getName());
-
-            TextView userLocation = (TextView) convertView.findViewById(R.id.location);
-            userLocation.setText(user.getLocation());*/
 
             //viewを返す
             return convertView;
@@ -307,15 +288,15 @@ public class MainActivity extends Activity {
 
     //listviewで使うUserクラス
     private class User {
-        private Bitmap image;
+        private String image;
         private String name;
         private String location;
 
-        public Bitmap getImage() {
+        public String getImage() {
             return this.image;
         }
 
-        public void setImage(Bitmap image) {
+        public void setImage(String image) {
             this.image = image;
         }
 
