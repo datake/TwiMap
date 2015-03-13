@@ -20,6 +20,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.twitterApplication.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,7 +41,7 @@ import twitter4j.TwitterAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnMapReadyCallback {
 
     private final String apiKey = "Qko6HCmLeKYLsvuvU32rCQ0HF";
     private final String apiSecret = "MC0DWK47LllmBG6CEzowdtUyxqebXhM0lN0ori5qgaTtb2mQYA";
@@ -167,9 +174,29 @@ public class MainActivity extends Activity {
             //QueryResult result;
             twitter.search(query);
         }
+
+
+
+        //Google Map Fragment
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }//end oncreate
 
 
+    //Googlemapのよびだし
+    @Override
+    public void onMapReady(GoogleMap map) {
+        LatLng kyoto= new LatLng(34.985442,135.758466);
+
+        map.setMyLocationEnabled(true);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(kyoto, 13));
+
+        map.addMarker(new MarkerOptions()
+                .title("Kyoto Station")
+                .snippet("Hello Kyoto")
+                .position(kyoto));
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

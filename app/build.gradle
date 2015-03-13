@@ -1,15 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
+    compileSdkVersion 21
     buildToolsVersion "21.1.2"
-
     defaultConfig {
         applicationId "com.example.twitterApplication"
-        minSdkVersion 8
-        targetSdkVersion 18
+        minSdkVersion 18
+        targetSdkVersion 21
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -22,6 +20,8 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
     }
+    productFlavors {
+    }
 }
 
 
@@ -33,5 +33,9 @@ dependencies {
     //compile files('libs/twitter4j-core-4.0.2.jar')
     //compile files('libs/twitter4j-async-4.0.2.jar')
     //compile fileTree(dir:'libs',include:['*.jar'])
-    compile 'com.android.support:support-v4:19.+'
+
+    compile 'com.android.support:support-v4:21.+'
+    compile 'com.android.support:appcompat-v7:21.+'
+    //下のやつversion注意!はまった！
+    compile 'com.google.android.gms:play-services:6.5.+'
 }
