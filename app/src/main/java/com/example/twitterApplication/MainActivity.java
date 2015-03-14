@@ -48,8 +48,6 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
 
     private final String apiKey = "Qko6HCmLeKYLsvuvU32rCQ0HF";
     private final String apiSecret = "MC0DWK47LllmBG6CEzowdtUyxqebXhM0lN0ori5qgaTtb2mQYA";
-    //String consumerKey = "";
-    //String consumerSecret = "";
     private AsyncTwitter twitter;
     private RequestToken requestToken;
 
@@ -57,38 +55,28 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
     EditText editText;
     ArrayList<User> users = new ArrayList<User>();
 
-
-    //Map<String, String> m = new HashMap<String, String>();
     List<String> titleList = new ArrayList<String>(Arrays.asList("data1", "temple", "Station"));
     List<String> snippetList = new ArrayList<String>(Arrays.asList("data1", "Kiyomizu", "kyoto station"));
     List<Double> latitudeList = new ArrayList<Double>(Arrays.asList(34.985442, 34.994856, 34.985460));
     List<Double> longititudeList = new ArrayList<Double>(Arrays.asList(135.758456,135.785046,135.758450));
 
+    //mapfragmentはglobalに宣言して、onCreateの中で代入する。
     MapFragment mapFragment;
 
-
-    // getApplication()でアプリケーションクラスのインスタンスを拾う
-    //final Globals globals = (Globals)this.getApplication();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Google Map Fragment
-        //final MapFragment mapFragment = (MapFragment) getFragmentManager()
-               // .findFragmentById(R.id.map);
-
-
-        Log.d("oncreate", "oncreate");
         // editTextを関連付け
         editText = (EditText)findViewById(R.id.editText);
+        //google mapを表すfragmentの代入
         mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
 
-
         final ListView myListView = (ListView) findViewById(R.id.listView);
+
         //adapterをListviewにセット
-        //setUserAdapters();
         final UserAdapter userAdapter = new UserAdapter(this,0,users);
         myListView.setAdapter(userAdapter);
 
@@ -109,7 +97,6 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         //非同期通信処理
         // Twitterと通信した際の動作を記述
         twitter.addListener(new TwitterAdapter() {
-            //ArrayList<User> usersListener = new ArrayList<User>();
             @Override
             public void gotOAuthRequestToken(RequestToken token) {
                 //1 RequestTokenを取得したときの処理
@@ -146,33 +133,21 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
                 for (Status status : queryResult.getTweets()) {
                     Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation().getLatitude());
                     GoogleMap mapFragmentForUpdate=mapFragment.getMap();
-                    //mapFragment.set
-
-                   /* User user = new twitter4j.User();
+                    
+                    User user = new User();
                     //status.getUser().getProfileImageURL()はString型
-                    //ここで
                     user.setImage(status.getUser().getProfileImageURL());
                     user.setName(status.getUser().getName());
                     user.setLocation(status.getText());
 
                     //検索結果に基づいてUserを作成しUsersに追加(:ArrayList<User>)
-                    users.add(user);*/
+                    users.add(user);
 
                     //mapに表示するためのデータ
                     titleList.add((status.getUser().getName()));
                     snippetList.add(status.getText());
                     latitudeList.add(status.getGeoLocation().getLatitude());
                     longititudeList.add(status.getGeoLocation().getLongitude());
-
-                    //マーカーに追加
-                    LatLng locationForUpdate = new LatLng(status.getGeoLocation().getLatitude(), status.getGeoLocation().getLatitude());
-
-
-                    //ここでとまるので困っている。
-                   /* mapFragmentForUpdate.addMarker(new MarkerOptions()
-                            .title(status.getUser().getName())
-                            .snippet(status.getText())
-                            .position(locationForUpdate));*/
                     Log.d("searched added marker", "name,text,lat,long:" + status.getUser().getScreenName()+status.getText()+status.getGeoLocation());
 
 
@@ -213,7 +188,7 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         //一回最初のデータの読み込み
         //rinitSearch();
         //rinitSearch();
-        Log.d("aaa","aa");
+
         //onmapreadyのよみだし
         //mapFragment.getMapAsync(this);
 
@@ -268,32 +243,26 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
      // OAuth認証のためのRequestTokenを取得する
         twitter.getOAuthRequestTokenAsync("callback://MainActivity");
      }
-     // ツイートボタンを押した時の処理
-     /*public void tweet(View v){
-        // ツイートする
-        // twitter.updateStatus(editText.getText().toString());
-     }
+
       // 更新ボタンの処理
-     public void refresh(View v){
-     // タイムラインを更新する
-           //twitter.getHomeTimeline();
-     }*/
+     public void restart(View v){
+    //google map apiでは非同期でピンを変更できない。(一度立てたピンを非同期で移動できない)
+     //のでrestart activity
+         Intent intent = getIntent();
+         finish();
+         startActivity(intent);
+
+     }
     //リスタート
      public void refresh(View v) {
-         //finish();
-         //startActivity(getIntent());
-//         tempBundle = new Bundle();
-//         onCreate(tempBundle);
-         Log.d("更新ボタン","refresh");
          mapFragment.getMapAsync(this);
-
      }
     //検索ボタンの処理
      public void search(View v){
 
          String editTextStr = editText.getText().toString().trim();
          Toast.makeText(MainActivity.this,editTextStr, Toast.LENGTH_SHORT).show();
-         Log.d("Clicled","serch clicked"+editTextStr);
+         Log.d("検索ボタン","serch clicked"+editTextStr);
          Query query = new Query();
          query.setQuery(editTextStr);
          query.setCount(100);
@@ -341,7 +310,7 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         }
     }
 
-    public class UserAdapter extends ArrayAdapter<User>{
+    public class UserAdapter extends ArrayAdapter<User> {
 
         private LayoutInflater layoutInflater;
 
@@ -414,12 +383,3 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
 
     }
 }
-/*
-    private class Tweetdata {
-        public String tweetTitle
-
-        List<String> titleList = new ArrayList<String>(Arrays.asList("data1", "temple", "Station"));
-        List<String> snippetList = new ArrayList<String>(Arrays.asList("data1", "Kiyomizu", "kyoto station"));
-        List<Double> latitudeList = new ArrayList<Double>(Arrays.asList(34.985442, 34.994856, 34.985460));
-        List<Double> longititudeList = new ArrayList<Double>(Arrays.asList(135.758456, 135.785046, 135.758450));
-    }*/

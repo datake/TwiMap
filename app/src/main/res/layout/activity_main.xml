@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#D2EBF4"
     tools:context=".MainActivity" >
 
     <LinearLayout
@@ -41,6 +42,13 @@
                 android:id="@+id/button2"
                 android:onClick="refresh" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="リセット"
+                android:id="@+id/button3"
+                android:onClick="restart" />
+
              <!--
             <Button
                 android:layout_width="wrap_content"
@@ -65,7 +73,7 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="450dp" />
+            android:layout_height="250dp" />
 
         <ListView
             android:layout_width="wrap_content"
