@@ -133,7 +133,7 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
                 for (Status status : queryResult.getTweets()) {
                     Log.d("searched", "gettext,geo:" + status.getText()+status.getGeoLocation().getLatitude());
                     GoogleMap mapFragmentForUpdate=mapFragment.getMap();
-                    
+
                     User user = new User();
                     //status.getUser().getProfileImageURL()はString型
                     user.setImage(status.getUser().getProfileImageURL());
