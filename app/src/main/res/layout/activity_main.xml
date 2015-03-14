@@ -19,7 +19,7 @@
             android:layout_width="fill_parent"
             android:layout_height="88dp">
 
-            <android.inputmethodservice.ExtractEditText
+            <EditText
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Osaka"

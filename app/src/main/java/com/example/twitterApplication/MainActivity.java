@@ -64,7 +64,8 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
     List<Double> latitudeList = new ArrayList<Double>(Arrays.asList(34.985442, 34.994856, 34.985460));
     List<Double> longititudeList = new ArrayList<Double>(Arrays.asList(135.758456,135.785046,135.758450));
 
-    //Marker now;
+    MapFragment mapFragment;
+
 
     // getApplication()でアプリケーションクラスのインスタンスを拾う
     //final Globals globals = (Globals)this.getApplication();
@@ -74,13 +75,15 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         setContentView(R.layout.activity_main);
 
         //Google Map Fragment
-        final MapFragment mapFragment = (MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map);
+        //final MapFragment mapFragment = (MapFragment) getFragmentManager()
+               // .findFragmentById(R.id.map);
 
 
         Log.d("oncreate", "oncreate");
         // editTextを関連付け
         editText = (EditText)findViewById(R.id.editText);
+        mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
 
 
         final ListView myListView = (ListView) findViewById(R.id.listView);
@@ -175,10 +178,14 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
 
 
                 }
-                userAdapter.notifyDataSetChanged();
+                for (int tmp=0; tmp<titleList.size(); tmp++) {
+                    Log.d("searchedlist", "titlelist:" + titleList.get(tmp));
+                }
+                //userAdapter.notifyDataSetChanged();
 
                 //TODO ここでgooglemapをasyncする処理。
-                onMapReady(mapFragment.getMap());
+                //onMapReady(mapFragment.getMap());
+                //onMapReady() is triggered by a call to getMapAsync() on your MapFragment?
                 mapFragment.getMapAsync(MainActivity.this);
 
             }
@@ -204,10 +211,11 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         }
 
         //一回最初のデータの読み込み
-        initSearch();
-
+        //rinitSearch();
+        //rinitSearch();
+        Log.d("aaa","aa");
         //onmapreadyのよみだし
-        mapFragment.getMapAsync(this);
+        //mapFragment.getMapAsync(this);
 
     }//end oncreate
 
@@ -216,15 +224,19 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         for (int tmp=0; tmp<titleList.size(); tmp++) {
-            LatLng location = new LatLng(latitudeList.get(tmp), longititudeList.get(tmp));
-            map.setMyLocationEnabled(true);
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
+            if(latitudeList.get(tmp)!=null&&titleList.get(tmp)!=null&&snippetList.get(tmp)!=null) {
+                LatLng location = new LatLng(latitudeList.get(tmp), longititudeList.get(tmp));
+                map.setMyLocationEnabled(true);
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
 
-            map.addMarker(new MarkerOptions()
-                    .title(titleList.get(tmp))
-                    .snippet(snippetList.get(tmp))
-                    .position(location));
-            Log.d("onMapReady", "maptitile:" + titleList.get(tmp));
+                map.addMarker(new MarkerOptions()
+                        .title(titleList.get(tmp))
+                        .snippet(snippetList.get(tmp))
+                        .position(location));
+                Log.d("onMapReady", "maptitile:" + titleList.get(tmp));
+            }else {
+                Log.d("onMapReady","null fouund");
+            }
         }
     }
 
@@ -272,6 +284,9 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
          //startActivity(getIntent());
 //         tempBundle = new Bundle();
 //         onCreate(tempBundle);
+         Log.d("更新ボタン","refresh");
+         mapFragment.getMapAsync(this);
+
      }
     //検索ボタンの処理
      public void search(View v){
@@ -280,11 +295,11 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
          Toast.makeText(MainActivity.this,editTextStr, Toast.LENGTH_SHORT).show();
          Log.d("Clicled","serch clicked"+editTextStr);
          Query query = new Query();
-         //query.setQuery(editTextStr);
-         query.setCount(10);
+         query.setQuery(editTextStr);
+         query.setCount(100);
          //清水寺から１キロ以内のtweet
          GeoLocation geo= new GeoLocation(34.994856, 135.785046);
-         query.setGeoCode(geo,1,Query.KILOMETERS);
+         query.setGeoCode(geo,10,Query.KILOMETERS);
          QueryResult result;
          twitter.search(query);
          //result = twitter.search(query);
@@ -295,10 +310,10 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
         Log.d("initSearch()","data set");
         Query query = new Query();
         //100件取得
-        query.setCount(20);
+        query.setCount(100);
         //清水寺から１キロ以内のtweet
         GeoLocation geo= new GeoLocation(34.994856, 135.785046);
-        query.setGeoCode(geo,1,Query.KILOMETERS);
+        query.setGeoCode(geo,10,Query.KILOMETERS);
         QueryResult result;
         twitter.search(query);
         //result = twitter.search(query);
