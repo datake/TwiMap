@@ -54,21 +54,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0384617" vertical-offset="1290" max-vertical-offset="4980">
-              <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5" vertical-offset="2338" max-vertical-offset="6225">
+              <caret line="167" column="36" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#1814#1820#0" expanded="true" />
                 <element signature="e#1929#1937#0" expanded="true" />
                 <element signature="e#2028#2036#0" expanded="true" />
                 <element signature="e#2136#2144#0" expanded="true" />
                 <element signature="e#2242#2250#0" expanded="true" />
-                <element signature="e#3048#3399#0" expanded="true" />
-                <element signature="e#3388#3389#0" expanded="true" />
-                <element signature="e#9993#9994#0" expanded="true" />
-                <element signature="e#10029#10030#0" expanded="true" />
+                <element signature="e#3212#3563#0" expanded="true" />
+                <element signature="e#3552#3553#0" expanded="true" />
+                <element signature="e#10983#10984#0" expanded="true" />
+                <element signature="e#11019#11020#0" expanded="true" />
+                <element signature="e#12990#12991#0" expanded="true" />
+                <element signature="e#13031#13032#0" expanded="true" />
+                <element signature="e#13077#13078#0" expanded="true" />
+                <element signature="e#13119#13120#0" expanded="true" />
+                <element signature="e#13154#13155#0" expanded="true" />
+                <element signature="e#13194#13195#0" expanded="true" />
+                <element signature="e#13238#13239#0" expanded="true" />
+                <element signature="e#13278#13279#0" expanded="true" />
+                <element signature="e#13317#13318#0" expanded="true" />
+                <element signature="e#13361#13362#0" expanded="true" />
+                <element signature="e#13413#13414#0" expanded="true" />
+                <element signature="e#13461#13462#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,7 +119,7 @@
       <file leaf-file-name="list_item_twitter.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_twitter.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="720">
+            <state vertical-scroll-proportion="2.3333333" vertical-offset="183" max-vertical-offset="720">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -116,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.0736842" vertical-offset="84" max-vertical-offset="1215">
-              <caret line="64" column="66" selection-start-line="64" selection-start-column="66" selection-end-line="64" selection-end-column="66" />
+            <state vertical-scroll-proportion="3.3333333" vertical-offset="720" max-vertical-offset="1230">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1097,6 +1110,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterApplication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterApplication2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1137,7 +1180,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="build&#9;ACTION&#9;ActivateBuildVariantsToolWindow&#10;googleMa&#9;PSI&#9;JAVA://com.google.android.gms.maps.GoogleMap&#10;sdk&#9;ACTION&#9;Android.RunAndroidSdkManager&#10;androidmani&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/src/main/AndroidManifest.xml&#10;androidma&#9;null&#9;null&#10;edittext&#9;PSI&#9;JAVA://android.widget.EditText&#10;editte&#9;PSI&#9;JAVA://android.widget.EditText&#10;invalidate &#9;ACTION&#9;InvalidateCaches&#10;.xml&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/src/main/res/layout/activity_main.xml&#10;ac&#9;PSI&#9;JAVA://com.example.twitterApplication.MainActivity&#10;twitter4&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/libs/twitter4j-async-3.0.5.jar" />
+    <property name="SearchEverywhereHistoryKey" value="draw&#9;PSI&#9;JAVA://com.example.twitterApplication.R.drawable&#10;build&#9;ACTION&#9;ActivateBuildVariantsToolWindow&#10;googleMa&#9;PSI&#9;JAVA://com.google.android.gms.maps.GoogleMap&#10;sdk&#9;ACTION&#9;Android.RunAndroidSdkManager&#10;androidmani&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/src/main/AndroidManifest.xml&#10;androidma&#9;null&#9;null&#10;edittext&#9;PSI&#9;JAVA://android.widget.EditText&#10;editte&#9;PSI&#9;JAVA://android.widget.EditText&#10;invalidate &#9;ACTION&#9;InvalidateCaches&#10;.xml&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/src/main/res/layout/activity_main.xml&#10;ac&#9;PSI&#9;JAVA://com.example.twitterApplication.MainActivity&#10;twitter4&#9;FILE&#9;file:///Users/take/AndroidStudioProjects/TwitterApplication2/app/libs/twitter4j-async-3.0.5.jar" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GoogleMap" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0a8e6526" />
@@ -1151,6 +1194,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
       <recent name="$PROJECT_DIR$/app/libs" />
     </key>
     <key name="android.template.packageName">
@@ -1338,29 +1382,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15864022" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39943343" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28611898" sideWeight="0.12197092" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4490085" sideWeight="0.80371565" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43201134" sideWeight="0.12197092" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60339946" sideWeight="0.34975767" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5011442" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5283286" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5184136" sideWeight="0.8780291" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43201134" sideWeight="0.8780291" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.49885583" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38101983" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19789983" sideWeight="0.49885583" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48016998" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60339946" sideWeight="0.88045233" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
@@ -1417,7 +1461,29 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java</url>
+          <line>164</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java</url>
+          <line>172</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java</url>
+          <line>168</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java">
@@ -1425,15 +1491,28 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5970">
           <caret line="217" column="27" selection-start-line="217" selection-start-column="19" selection-end-line="217" selection-end-column="27" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1814#1820#0" expanded="true" />
             <element signature="e#1929#1937#0" expanded="true" />
             <element signature="e#2028#2036#0" expanded="true" />
             <element signature="e#2136#2144#0" expanded="true" />
             <element signature="e#2242#2250#0" expanded="true" />
-            <element signature="e#3048#3399#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#9993#9994#0" expanded="true" />
-            <element signature="e#10029#10030#0" expanded="true" />
+            <element signature="e#3212#3563#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11019#11020#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13031#13032#0" expanded="true" />
+            <element signature="e#13077#13078#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13194#13195#0" expanded="true" />
+            <element signature="e#13238#13239#0" expanded="true" />
+            <element signature="e#13278#13279#0" expanded="true" />
+            <element signature="e#13317#13318#0" expanded="true" />
+            <element signature="e#13361#13362#0" expanded="true" />
+            <element signature="e#13413#13414#0" expanded="true" />
+            <element signature="e#13461#13462#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1484,15 +1563,28 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="4920">
           <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1814#1820#0" expanded="true" />
             <element signature="e#1929#1937#0" expanded="true" />
             <element signature="e#2028#2036#0" expanded="true" />
             <element signature="e#2136#2144#0" expanded="true" />
             <element signature="e#2242#2250#0" expanded="true" />
-            <element signature="e#3048#3399#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#9993#9994#0" expanded="true" />
-            <element signature="e#10029#10030#0" expanded="true" />
+            <element signature="e#3212#3563#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11019#11020#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13031#13032#0" expanded="true" />
+            <element signature="e#13077#13078#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13194#13195#0" expanded="true" />
+            <element signature="e#13238#13239#0" expanded="true" />
+            <element signature="e#13278#13279#0" expanded="true" />
+            <element signature="e#13317#13318#0" expanded="true" />
+            <element signature="e#13361#13362#0" expanded="true" />
+            <element signature="e#13413#13414#0" expanded="true" />
+            <element signature="e#13461#13462#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1543,15 +1635,28 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3393" max-vertical-offset="5250">
           <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1814#1820#0" expanded="true" />
             <element signature="e#1929#1937#0" expanded="true" />
             <element signature="e#2028#2036#0" expanded="true" />
             <element signature="e#2136#2144#0" expanded="true" />
             <element signature="e#2242#2250#0" expanded="true" />
-            <element signature="e#3048#3399#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#9993#9994#0" expanded="true" />
-            <element signature="e#10029#10030#0" expanded="true" />
+            <element signature="e#3212#3563#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11019#11020#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13031#13032#0" expanded="true" />
+            <element signature="e#13077#13078#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13194#13195#0" expanded="true" />
+            <element signature="e#13238#13239#0" expanded="true" />
+            <element signature="e#13278#13279#0" expanded="true" />
+            <element signature="e#13317#13318#0" expanded="true" />
+            <element signature="e#13361#13362#0" expanded="true" />
+            <element signature="e#13413#13414#0" expanded="true" />
+            <element signature="e#13461#13462#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1606,15 +1711,28 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="789" max-vertical-offset="1350">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1814#1820#0" expanded="true" />
             <element signature="e#1929#1937#0" expanded="true" />
             <element signature="e#2028#2036#0" expanded="true" />
             <element signature="e#2136#2144#0" expanded="true" />
             <element signature="e#2242#2250#0" expanded="true" />
-            <element signature="e#3048#3399#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#9993#9994#0" expanded="true" />
-            <element signature="e#10029#10030#0" expanded="true" />
+            <element signature="e#3212#3563#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11019#11020#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13031#13032#0" expanded="true" />
+            <element signature="e#13077#13078#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13194#13195#0" expanded="true" />
+            <element signature="e#13238#13239#0" expanded="true" />
+            <element signature="e#13278#13279#0" expanded="true" />
+            <element signature="e#13317#13318#0" expanded="true" />
+            <element signature="e#13361#13362#0" expanded="true" />
+            <element signature="e#13413#13414#0" expanded="true" />
+            <element signature="e#13461#13462#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1675,24 +1793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19946809" vertical-offset="0" max-vertical-offset="2820">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_twitter.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="720">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="690">
@@ -1701,21 +1801,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/twitterApplication/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0384617" vertical-offset="1290" max-vertical-offset="4980">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#1814#1820#0" expanded="true" />
-            <element signature="e#1929#1937#0" expanded="true" />
-            <element signature="e#2028#2036#0" expanded="true" />
-            <element signature="e#2136#2144#0" expanded="true" />
-            <element signature="e#2242#2250#0" expanded="true" />
-            <element signature="e#3048#3399#0" expanded="true" />
-            <element signature="e#3388#3389#0" expanded="true" />
-            <element signature="e#9993#9994#0" expanded="true" />
-            <element signature="e#10029#10030#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.35154393" vertical-offset="23882" max-vertical-offset="93870">
+          <caret line="1607" column="30" selection-start-line="1607" selection-start-column="30" selection-end-line="1607" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1984127" vertical-offset="0" max-vertical-offset="2820">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1744,15 +1842,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_twitter.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0736842" vertical-offset="84" max-vertical-offset="1215">
-          <caret line="64" column="66" selection-start-line="64" selection-start-column="66" selection-end-line="64" selection-end-column="66" />
+        <state vertical-scroll-proportion="2.3333333" vertical-offset="183" max-vertical-offset="720">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.3333333" vertical-offset="720" max-vertical-offset="1230">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/twitterApplication/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5" vertical-offset="2338" max-vertical-offset="6225">
+          <caret line="167" column="36" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1814#1820#0" expanded="true" />
+            <element signature="e#1929#1937#0" expanded="true" />
+            <element signature="e#2028#2036#0" expanded="true" />
+            <element signature="e#2136#2144#0" expanded="true" />
+            <element signature="e#2242#2250#0" expanded="true" />
+            <element signature="e#3212#3563#0" expanded="true" />
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#10983#10984#0" expanded="true" />
+            <element signature="e#11019#11020#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13031#13032#0" expanded="true" />
+            <element signature="e#13077#13078#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13194#13195#0" expanded="true" />
+            <element signature="e#13238#13239#0" expanded="true" />
+            <element signature="e#13278#13279#0" expanded="true" />
+            <element signature="e#13317#13318#0" expanded="true" />
+            <element signature="e#13361#13362#0" expanded="true" />
+            <element signature="e#13413#13414#0" expanded="true" />
+            <element signature="e#13461#13462#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
